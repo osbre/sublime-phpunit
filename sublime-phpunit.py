@@ -41,7 +41,7 @@ class PhpunitTestCommand(sublime_plugin.WindowCommand):
             if r.a < sel.a:
                 cf = view.substr(r)
                 break
-        return cf
+        return cf + '(.*)'
 
     def find_phpunit_config(self, file_name):
         phpunit_config_path = file_name
