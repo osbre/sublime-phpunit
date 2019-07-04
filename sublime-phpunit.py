@@ -84,6 +84,7 @@ class PhpunitTestCommand(sublime_plugin.WindowCommand):
             osascript_command += ' "PHPUnit Tests"'
 
         self.lastTestCommand = command
+        self.window.active_view().run_command('save')
         os.system(osascript_command)
 
         self.autofocus_sublime()
