@@ -73,12 +73,14 @@ class PhpunitTestCommand(sublime_plugin.WindowCommand):
     def run_in_terminal(self, command):
         osascript_command = 'osascript '
 
+        command_options = self.get_setting('phpunit-sublime-options', '')
+
         if self.get_setting('phpunit-sublime-terminal', 'Term') == 'iTerm':
             osascript_command += '"' + os.path.dirname(os.path.realpath(__file__)) + '/open_iterm.applescript"'
-            osascript_command += ' "' + command + '"'
+            osascript_command += ' "' + command + ' ' + command_options + '"'
         else:
             osascript_command += '"' + os.path.dirname(os.path.realpath(__file__)) + '/run_command.applescript"'
-            osascript_command += ' "' + command + '"'
+            osascript_command += ' "' + command + ' ' + command_options + '"'
             osascript_command += ' "PHPUnit Tests"'
 
         self.lastTestCommand = command
