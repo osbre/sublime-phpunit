@@ -87,7 +87,7 @@ class PhpunitTestCommand(sublime_plugin.WindowCommand):
         self.window.active_view().run_command('save')
         os.system(osascript_command)
 
-        self.autofocus_sublime()
+        # self.autofocus_sublime()
 
     def autofocus_sublime(self):
         os.system('osascript "' + os.path.dirname(os.path.realpath(__file__)) + '/refocus_sublime.applescript"')
